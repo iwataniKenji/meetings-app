@@ -1,0 +1,46 @@
+#meeting-room {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 800px;
+  height: 90vh;
+  margin: 0 auto;
+
+  .meeting-room-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+
+    textarea {
+      width: 600px;
+      height: 60px;
+      border: 0;
+      margin: 0 auto;
+      padding: 16px;
+      border-radius: 4px;
+      box-shadow: 0;
+      background: #fff;
+      resize: vertical;
+    }
+
+    div {
+      align-self: flex-end;
+
+      button {
+        color: #fff;
+        background: #1d3557;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: filter 0.2s;
+
+        &:hover {
+          filter: brightness(0.9);
+        }
+      }
+    }
+  }
+}

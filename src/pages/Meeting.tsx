@@ -1,5 +1,15 @@
+import "../styles/meeting.scss";
+
 export function Meeting() {
   return (
-    <h1>Meeting</h1>
-  )
+    <div id="meeting-room">
+      <form className="meeting-room-container">
+        <textarea placeholder="Digite sua pauta" />
+
+        <div>
+          <button>Enviar pauta</button>
+        </div>
+      </form>
+    </div>
+  );
 }
