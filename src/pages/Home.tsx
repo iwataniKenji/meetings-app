@@ -15,7 +15,7 @@ export function Home() {
       await signInWithGoogle();
     }
 
-    // se estiver autenticado -> redirecionar 
+    // se estiver autenticado -> redirecionar
     history("/rooms/new");
   }
 
@@ -27,9 +27,7 @@ export function Home() {
       <div>ou entre em uma já existente</div>
       <form>
         <input type="text" placeholder="Digite o código" />
-        <button type="submit">
-          Entrar na assembleia
-        </button>
+        <button type="submit">Entrar na assembleia</button>
       </form>
     </div>
   );

@@ -3,11 +3,12 @@ import { BrowserRouter, Route } from "react-router-dom";
 import { Routes } from "react-router";
 
 import { Home } from "./pages/Home";
-import { NewRoom } from "./pages/NewRoom";
+import { NewMeeting } from "./pages/NewMeeting";
 
 import "./styles/global.css";
 import { auth } from "./services/firebase";
 import firebase from "firebase/compat/app";
+import { Meeting } from './pages/Meeting';
 
 interface UserProps {
   id: string;
@@ -51,7 +52,8 @@ function App() {
       <AuthContext.Provider value={{ user, signInWithGoogle }}>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/rooms/new" element={<NewRoom />} />
+          <Route path="/rooms/new" element={<NewMeeting />} />
+          <Route path="/rooms/:id" element={<Meeting />} />
         </Routes>
       </AuthContext.Provider>
     </BrowserRouter>
