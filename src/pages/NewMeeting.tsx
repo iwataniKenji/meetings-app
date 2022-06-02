@@ -12,7 +12,7 @@ export function NewMeeting() {
   const history = useNavigate();
   const [newMeeting, setNewMeeting] = useState("");
 
-  async function handleCreateRoom(event: FormEvent) {
+  async function handleCreateMeeting(event: FormEvent) {
     event.preventDefault();
 
     // retorna caso input esteja vazio
@@ -23,28 +23,28 @@ export function NewMeeting() {
     // pega a referência "meetings" do firebase
     const meetingRef = database.ref("meetings");
 
-    // cria sala
+    // cria assembleia
     const firebaseMeeting = await meetingRef.push({
       title: newMeeting,
       authorId: user?.id,
       statusActive: true,
     });
 
-    // redireciona para a sala
-    history(`/rooms/${firebaseMeeting.key}`);
+    // redireciona para a assembleia
+    history(`/meetings/${firebaseMeeting.key}`);
   }
 
   return (
     <div id="auth-section">
       <h2>Criar nova assembleia</h2>
-      <form onSubmit={handleCreateRoom}>
+      <form onSubmit={handleCreateMeeting}>
         <input
           type="text"
           placeholder="Nome da assembleia"
           onChange={(event) => setNewMeeting(event.target.value)}
           value={newMeeting}
         />
-        <button type="submit">Criar sala</button>
+        <button type="submit">Criar assembleia</button>
       </form>
       <p>
         Gostaria de entrar em uma assembleia existente?&nbsp;

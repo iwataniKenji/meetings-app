@@ -52,8 +52,8 @@ function App() {
       <AuthContext.Provider value={{ user, signInWithGoogle }}>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/rooms/new" element={<NewMeeting />} />
-          <Route path="/rooms/:id" element={<Meeting />} />
+          <Route path="/meetings/new" element={<NewMeeting />} />
+          <Route path="/meetings/:id" element={<Meeting />} />
         </Routes>
       </AuthContext.Provider>
     </BrowserRouter>
