@@ -1,10 +1,10 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
 import { BrowserRouter, Route } from "react-router-dom";
 import { Routes } from "react-router";
 
 import { Home } from "./pages/Home";
 import { NewMeeting } from "./pages/NewMeeting";
-import { Meeting } from './pages/Meeting';
+import { Meeting } from "./pages/Meeting";
 
 import { auth } from "./services/firebase";
 import firebase from "firebase/compat/app";
@@ -25,6 +25,24 @@ export const AuthContext = createContext({} as AuthContextType);
 
 function App() {
   const [user, setUser] = useState<UserProps>();
+
+  // recupera estado de autenticação
+  useEffect(() => {
+    auth.onAuthStateChanged((user) => {
+      if (user) {
+        const { displayName, uid } = user;
+
+        if (!displayName) {
+          throw new Error("Informação insuficiente");
+        }
+
+        setUser({
+          id: uid,
+          name: displayName,
+        });
+      }
+    });
+  }, []);
 
   async function signInWithGoogle() {
     const provider = new firebase.auth.GoogleAuthProvider();

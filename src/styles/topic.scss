@@ -20,7 +20,7 @@
     margin-bottom: 40px;
   }
 
-  .like-section {
+  .vote-section {
     display: flex;
     justify-content: space-between;
     gap: 20px;
@@ -38,7 +38,7 @@
         filter: brightness(0.7);
       }
 
-      &.liked {
+      &.voted {
         color: #1d3557;
 
         svg path {

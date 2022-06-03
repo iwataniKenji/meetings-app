@@ -87,6 +87,12 @@ export function Meeting() {
     setNewTopic("");
   }
 
+  async function handleVoteTopic(topicId: string) {
+    // await database.ref(`meetings/${meetingId}/topics/${topicId}/votes`).push({
+    //   authorId: user?.id,
+    // });
+  }
+
   return (
     <>
       <div id="meeting-room">
@@ -104,7 +110,13 @@ export function Meeting() {
       </div>
       {topics.map((topic) => {
         return (
-          <Topic key={topic.id} content={topic.name} votes={topic.votes} />
+          <Topic
+            key={topic.id}
+            content={topic.name}
+            votes={topic.votes}
+            topicId={topic.id}
+            computeVotes={handleVoteTopic}
+          />
         );
       })}
     </>

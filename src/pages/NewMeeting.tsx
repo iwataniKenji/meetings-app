@@ -14,7 +14,6 @@ export function NewMeeting() {
   async function handleCreateMeeting(event: FormEvent) {
     event.preventDefault();
 
-    // retorna caso input esteja vazio
     if (newMeeting.trim() === "") {
       return;
     }
