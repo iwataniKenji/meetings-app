@@ -112,12 +112,24 @@ export function Meeting() {
       await database
         .ref(`meetings/${meetingId}/topics/${topicId}/votes/${voteId}`)
         .remove();
+
+      if (user?.votedTopics.includes(topicId)) {
+        user?.votedTopics.splice(user?.votedTopics.indexOf(topicId), 1);
+      }
+
+      console.log(user);
     }
     // se não houver voto -> adicionar
     else {
       await database.ref(`meetings/${meetingId}/topics/${topicId}/votes`).push({
         authorId: user?.id,
       });
+
+      if (user?.votedTopics.includes(topicId) === false) {
+        user?.votedTopics.push(topicId);
+      }
+
+      console.log(user);
     }
   }
 

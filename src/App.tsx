@@ -14,6 +14,7 @@ import "./styles/global.css";
 interface UserProps {
   id: string;
   name: string;
+  votedTopics: string[];
 }
 
 interface AuthContextType {
@@ -39,6 +40,7 @@ function App() {
         setUser({
           id: uid,
           name: displayName,
+          votedTopics: [],
         });
       }
     });
@@ -62,6 +64,7 @@ function App() {
       setUser({
         id: uid,
         name: displayName,
+        votedTopics: [],
       });
     }
   }
