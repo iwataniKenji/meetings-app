@@ -27,6 +27,10 @@
 <p>O desafio é criar um algoritmo que seja capaz de abrir uma assembleia, abrir uma pauta, permitir que o participante vote numa pauta, realizar o cômputo de votos de cada pauta.</p>
 <p>Desafio idealizado pela Ten Meetings e executado por <a href="https://www.linkedin.com/in/kleverson-kenji-iwatani/">Kenji Iwatani</a></p>
 
+<p>
+    <h3><a href="https://ten-meetings.web.app/">Check website &rarr;</a></h3>
+</p>
+
 ---
 
 <H2 id="requirements">💡 Requirements</H2>
