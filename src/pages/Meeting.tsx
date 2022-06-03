@@ -12,6 +12,12 @@ type FirebaseTopics = Record<
   {
     name: string;
     votes: number;
+    votesCount: Record<
+      string,
+      {
+        authorId: string;
+      }
+    >;
   }
 >;
 
@@ -19,6 +25,8 @@ type TopicType = {
   id: string;
   name: string;
   votes: number;
+  votesCount: number;
+  hasVoted: boolean;
 };
 
 type MeetingParams = {
@@ -26,7 +34,7 @@ type MeetingParams = {
 };
 
 export function Meeting() {
-  const user = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
   const [newTopic, setNewTopic] = useState("");
   const [topics, setTopics] = useState<TopicType[]>([]);
 
@@ -51,15 +59,24 @@ export function Meeting() {
               id: key,
               name: value.name,
               votes: value.votes,
+              votesCount: Object.values(value.votes ?? {}).length,
+              hasVoted: Object.values(value.votes ?? {}).some(
+                (vote) => vote.authorId === user?.id
+              ),
             };
           }
         );
 
         setTopics(parsedTopics);
       });
+
+      // remove todos os event listeners para a determinada assembleia referenciada
+      return () => {
+        meetingRef.off("value");
+      };
     },
     // executa toda vez que URL mudar
-    [meetingId]
+    [meetingId, user?.id]
   );
 
   async function handleSendTopic(event: FormEvent) {
@@ -88,9 +105,9 @@ export function Meeting() {
   }
 
   async function handleVoteTopic(topicId: string) {
-    // await database.ref(`meetings/${meetingId}/topics/${topicId}/votes`).push({
-    //   authorId: user?.id,
-    // });
+    await database.ref(`meetings/${meetingId}/topics/${topicId}/votes`).push({
+      authorId: user?.id,
+    });
   }
 
   return (
@@ -113,8 +130,9 @@ export function Meeting() {
           <Topic
             key={topic.id}
             content={topic.name}
-            votes={topic.votes}
             topicId={topic.id}
+            votesCount={topic.votesCount}
+            hasVoted={topic.hasVoted}
             computeVotes={handleVoteTopic}
           />
         );

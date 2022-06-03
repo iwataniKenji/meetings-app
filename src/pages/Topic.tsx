@@ -2,22 +2,29 @@ import "../styles/topic.scss";
 
 interface TopicProps {
   content: string;
-  votes: number;
   topicId: string;
+  votesCount: number;
+  hasVoted: boolean;
   computeVotes: (topicId: string) => void;
 }
 
-export function Topic({ content, votes, topicId, computeVotes }: TopicProps) {
+export function Topic({
+  content,
+  topicId,
+  votesCount,
+  hasVoted,
+  computeVotes,
+}: TopicProps) {
   return (
     <div className="topic">
       <p>{content}</p>
       <div className="vote-section">
         <button
-          className="vote-button"
+          className={`vote-button ${hasVoted ? "voted" : ""}`}
           type="button"
           onClick={() => computeVotes(topicId)}
         >
-          <span>{votes}</span>
+          <span>{votesCount}</span>
           <svg
             width="24"
             height="24"

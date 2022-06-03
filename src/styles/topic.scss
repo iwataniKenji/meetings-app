@@ -39,11 +39,15 @@
       }
 
       &.voted {
-        color: #1d3557;
+        color: #ea4335;
 
         svg path {
-          stroke: rgb(66, 66, 66);
+          stroke: #ea4335;
         }
+      }
+
+      svg path {
+        stroke: rgb(66, 66, 66);
       }
     }
   }
