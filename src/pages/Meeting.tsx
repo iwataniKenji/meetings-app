@@ -26,7 +26,7 @@ type TopicType = {
   name: string;
   votes: number;
   votesCount: number;
-  hasVoted: boolean;
+  voteId: string | undefined;
 };
 
 type MeetingParams = {
@@ -60,9 +60,11 @@ export function Meeting() {
               name: value.name,
               votes: value.votes,
               votesCount: Object.values(value.votes ?? {}).length,
-              hasVoted: Object.values(value.votes ?? {}).some(
-                (vote) => vote.authorId === user?.id
-              ),
+
+              // chave e valor do voto caso encontrado
+              voteId: Object.entries(value.votes ?? {}).find(
+                ([key, vote]) => vote.authorId === user?.id
+              )?.[0],
             };
           }
         );
@@ -104,10 +106,19 @@ export function Meeting() {
     setNewTopic("");
   }
 
-  async function handleVoteTopic(topicId: string) {
-    await database.ref(`meetings/${meetingId}/topics/${topicId}/votes`).push({
-      authorId: user?.id,
-    });
+  async function handleVoteTopic(topicId: string, voteId: string | undefined) {
+    // se houver voto -> remover
+    if (voteId) {
+      await database
+        .ref(`meetings/${meetingId}/topics/${topicId}/votes/${voteId}`)
+        .remove();
+    }
+    // se não houver voto -> adicionar
+    else {
+      await database.ref(`meetings/${meetingId}/topics/${topicId}/votes`).push({
+        authorId: user?.id,
+      });
+    }
   }
 
   return (
@@ -132,7 +143,7 @@ export function Meeting() {
             content={topic.name}
             topicId={topic.id}
             votesCount={topic.votesCount}
-            hasVoted={topic.hasVoted}
+            voteId={topic.voteId}
             computeVotes={handleVoteTopic}
           />
         );

@@ -4,15 +4,15 @@ interface TopicProps {
   content: string;
   topicId: string;
   votesCount: number;
-  hasVoted: boolean;
-  computeVotes: (topicId: string) => void;
+  voteId: string | undefined;
+  computeVotes: (topicId: string, voteId: string | undefined) => void;
 }
 
 export function Topic({
   content,
   topicId,
   votesCount,
-  hasVoted,
+  voteId,
   computeVotes,
 }: TopicProps) {
   return (
@@ -20,9 +20,9 @@ export function Topic({
       <p>{content}</p>
       <div className="vote-section">
         <button
-          className={`vote-button ${hasVoted ? "voted" : ""}`}
+          className={`vote-button ${voteId ? "voted" : ""}`}
           type="button"
-          onClick={() => computeVotes(topicId)}
+          onClick={() => computeVotes(topicId, voteId)}
         >
           <span>{votesCount}</span>
           <svg
