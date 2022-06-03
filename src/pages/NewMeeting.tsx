@@ -1,11 +1,10 @@
-import { useContext } from "react";
+import { useContext, FormEvent, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../App";
 
-import { FormEvent, useState } from "react";
 import { database } from "../services/firebase";
 
 import "../styles/auth.scss";
-import { useNavigate } from "react-router-dom";
 
 export function NewMeeting() {
   const { user } = useContext(AuthContext);

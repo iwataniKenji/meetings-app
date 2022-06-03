@@ -4,11 +4,12 @@ import { Routes } from "react-router";
 
 import { Home } from "./pages/Home";
 import { NewMeeting } from "./pages/NewMeeting";
+import { Meeting } from './pages/Meeting';
 
-import "./styles/global.css";
 import { auth } from "./services/firebase";
 import firebase from "firebase/compat/app";
-import { Meeting } from './pages/Meeting';
+
+import "./styles/global.css";
 
 interface UserProps {
   id: string;

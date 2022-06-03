@@ -3,8 +3,9 @@ import { useNavigate } from "react-router-dom";
 import { FormEvent, useContext, useState } from "react";
 import { AuthContext } from "../App";
 
-import "../styles/auth.scss";
 import { database } from "../services/firebase";
+
+import "../styles/auth.scss";
 
 export function Home() {
   const history = useNavigate();
