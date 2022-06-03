@@ -3,7 +3,7 @@
   justify-content: center;
   align-items: center;
   max-width: 800px;
-  height: 90vh;
+  height: 50vh;
   margin: 0 auto;
 
   .meeting-room-container {
@@ -20,7 +20,7 @@
       margin: 0 auto;
       padding: 16px;
       border-radius: 4px;
-      box-shadow: 0;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
       background: #fff;
       resize: vertical;
     }

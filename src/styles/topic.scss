@@ -1,0 +1,50 @@
+.topic {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin: 0 auto;
+  padding: 16px;
+  border-radius: 6px;
+  gap: 10px;
+  max-width: 600px;
+  background: #fff;
+  color: rgb(66, 66, 66);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+
+  & + .topic {
+    margin-top: 10px;
+  }
+
+  &:last-child {
+    margin-bottom: 40px;
+  }
+
+  .like-section {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+
+    button {
+      display: flex;
+      gap: 8px;
+      border: none;
+      cursor: pointer;
+      background: transparent;
+      color: rgb(66, 66, 66);
+      transition: filter 0.3s;
+
+      &:hover {
+        filter: brightness(0.7);
+      }
+
+      &.liked {
+        color: #1d3557;
+
+        svg path {
+          stroke: rgb(66, 66, 66);
+        }
+      }
+    }
+  }
+}

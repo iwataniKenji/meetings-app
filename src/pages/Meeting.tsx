@@ -1,6 +1,7 @@
 import { FormEvent, useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { AuthContext } from "../App";
+import { Topic } from "./Topic";
 
 import { database } from "../services/firebase";
 
@@ -14,7 +15,7 @@ type FirebaseTopics = Record<
   }
 >;
 
-type Topic = {
+type TopicType = {
   id: string;
   name: string;
   votes: number;
@@ -27,7 +28,7 @@ type MeetingParams = {
 export function Meeting() {
   const user = useContext(AuthContext);
   const [newTopic, setNewTopic] = useState("");
-  const [topics, setTopics] = useState<Topic[]>([]);
+  const [topics, setTopics] = useState<TopicType[]>([]);
 
   // pega código da sala através dos parâmetros
   const params = useParams<MeetingParams>();
@@ -87,18 +88,25 @@ export function Meeting() {
   }
 
   return (
-    <div id="meeting-room">
-      <form onSubmit={handleSendTopic} className="meeting-room-container">
-        <textarea
-          placeholder="Digite sua pauta"
-          onChange={(event) => setNewTopic(event.target.value)}
-          value={newTopic}
-        />
+    <>
+      <div id="meeting-room">
+        <form onSubmit={handleSendTopic} className="meeting-room-container">
+          <textarea
+            placeholder="Digite sua pauta"
+            onChange={(event) => setNewTopic(event.target.value)}
+            value={newTopic}
+          />
 
-        <div>
-          <button type="submit">Enviar pauta</button>
-        </div>
-      </form>
-    </div>
+          <div>
+            <button type="submit">Enviar pauta</button>
+          </div>
+        </form>
+      </div>
+      {topics.map((topic) => {
+        return (
+          <Topic key={topic.id} content={topic.name} votes={topic.votes} />
+        );
+      })}
+    </>
   );
 }
