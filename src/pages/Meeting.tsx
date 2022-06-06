@@ -96,7 +96,6 @@ export function Meeting() {
     // criando objeto
     const topic = {
       name: newTopic,
-      votes: 0,
     };
 
     // inserindo a pauta no assembleia específica

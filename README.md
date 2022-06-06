@@ -8,6 +8,7 @@
 
 <p align="center">
     <a href="#about">📙 About</a>
+    <a href="#preview">🖼️ Preview</a>
     <a href="#requirements">💡 Requirements</a>
     <a href="#technologies">💻 Technologies</a>
 </p>
@@ -30,6 +31,14 @@
 <p>
     <h3><a href="https://ten-meetings.web.app/">Check website &rarr;</a></h3>
 </p>
+
+---
+
+<H2 id="preview">🖼️ Preview</H2>
+
+<section align="center">
+    <img alt="ten-meetings website overview" src="preview.gif"/>
+</section>
 
 ---
 
