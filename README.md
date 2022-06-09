@@ -19,14 +19,14 @@
 
 <H2 id="about">📙 About</H2>
 
-<p>A Ten Meetings é uma empresa que fornece serviços de assembleias para empresas de capital aberto. As assembleias possuem várias pautas e vários participantes.</p>
+<p>Ten Meetings is a company that provides meeting services to publicly traded companies. The meetings have several agendas and participants.</p>
 <ul>
-<li>A assembleia possui algumas características, como nome e status. Uma assembleia pode estar no status ativo ou inativa. Apenas assembleias ativas podem ter pautas votadas.</li>
-<li>A pauta possui algumas características, como nome e quantidade total de votos. Uma pauta pode ser votada apenas uma vez por participante.</li>
-<li>O participante possui nome e um vetor de votos. Cada participante pode votar apenas uma vez em cada pauta.</li>
+<li>The meeting has some features, such as name and status. A meeting can be in active or inactive status. Only active meetings can have voted agendas.</li>
+<li>The agenda has some features, such as name and total number of votes. An agenda can only be voted once per participant.</li>
+<li>The participant has a name and an array of votes. Each participant can vote only once on each agenda.</li>
 </ul>
-<p>O desafio é criar um algoritmo que seja capaz de abrir uma assembleia, abrir uma pauta, permitir que o participante vote numa pauta, realizar o cômputo de votos de cada pauta.</p>
-<p>Desafio idealizado pela Ten Meetings e executado por <a href="https://www.linkedin.com/in/kleverson-kenji-iwatani/">Kenji Iwatani</a></p>
+<p>The challenge is to create an algorithm that is able to open an meeting, open an agenda, allow the participant to vote on an agenda, perform the vote count for each agenda.</p>
+<p>Challenge idealized by Ten Meetings and executed by <a href="https://www.linkedin.com/in/kleverson-kenji-iwatani/">Kenji Iwatani</a></p>
 
 <p>
     <h3><a href="https://ten-meetings.web.app/">Check website &rarr;</a></h3>
@@ -44,12 +44,12 @@
 
 <H2 id="requirements">💡 Requirements</H2>
 
-- [x] Deve ser capaz de abrir uma assembleia
-- [x] Deve ser capaz de abrir uma pauta
-- [x] Deve ser capaz de permitir que o participante vote em uma pauta
-- [x] Deve ser capaz de computar os votos de cada pauta
-- [x] Apenas assembleias ativas podem ter pautas votadas
-- [x] Cada participante pode votar apenas uma vez por pauta
+- [x] Should be able to open a meeting
+- [x] Should be able to open an agenda
+- [x] Should be able to allow the participant to vote on an agenda
+- [x] Should be able to compute votes from each agenda
+- [x] Only active meetings can have voted agendas
+- [x] Each participant can vote only once per agenda
 
 ---
 
