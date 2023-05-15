@@ -1,5 +1,5 @@
 <section align="center">
-    <h1>TEN MEETINGS</h1>
+    <h1>MEETINGS APP</h1>
 </section>
 
 ---
@@ -14,7 +14,7 @@
 </p>
 
 <h4 align="center">
-   ✔️ Ten Meetings project finished ✔️
+   ✔️ Meetings App project finished ✔️
 </h4>
 
 <H2 id="about">📙 About</H2>
